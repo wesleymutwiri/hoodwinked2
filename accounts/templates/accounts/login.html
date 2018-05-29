@@ -1,11 +1,29 @@
 {%extends 'registration/base.html'%} {%load bootstrap4 %} {%block content%}
 
-<div class="container">
+<!-- <div class="container"> -->
+    <div class="container col d-flex justify-content-center" style="padding-top: 100px;">
+        <div class="row">
+    
+            <div class="col-md-9">
+    
+            </div>
+        </div>
+        <div class="card" style="width: 22rem;">
+            <div class="card-header">
+                <center>
+                    <h1>Hoodwinked</h1>
+                    <p>Sign In to Hoodwinked</p>
+        
+                </center>
+        
+            </div>
     <h1>Login</h1>
-
+        <div class="card-body">
     <form action="" method="post">
         {%csrf_token%} {%bootstrap_form form %}
         <input type="submit" class="btn btn-default" value="Login">
     </form>
+    </div>
+        </div>
 </div>
 {%endblock%}
