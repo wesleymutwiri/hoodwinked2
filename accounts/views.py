@@ -6,4 +6,5 @@ from django.views.generic import CreateView
 
 # Create your views here.
 class SignUp(CreateView):
-    pass
+    form_class = forms.UserCreateForm
+    template_name = 'signup.html '
