@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-light">
+<nav class="navbar sticky-top navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="{%url 'home'%}">
             <h1> Udaku</h1>
@@ -11,6 +11,7 @@
             </form>
         </div>
         {%if user.is_authenticated %}
+        
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"> Post</a></li>
             <li><a href="#"> Neighbourhood</a></li>
