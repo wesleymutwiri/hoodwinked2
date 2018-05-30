@@ -5,19 +5,19 @@
     <p>Welcome 
       <a href="{% url 'posts:for_user' username=user.username%}">@{{user.username}}</a> {% endif %}<br/> Welcome to the neighbourhood page!</p>
     {% if user.is_authenticated%}
-    <a href="{% url 'neighbour:create' %}">Create neighbour</a> 
+    <a href="{% url 'neighbourhood:create' %}">Create neighbourhood</a> 
     {% endif %}
   </div>
   {% endblock %} {% block neighbour_content %}
     <div class="row">
-      {% for neighbour in object_list %}
+      {% for neighbourhood in object_list %}
       <div class="col-md-4">
         <div class="card mt-2 text-white bg-dark mb-3" >
           <div class="card-body">
-            <h5 class="card-title"><a href="{% url 'neighbour:single' slug=neighbour.slug %}">{{neighbour.name}}</a></h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{neighbour.location}}</h6>
-            <p class="card-text"><span class="badge badge-secondary">{{neighbour.occupants.count}}</span> occupant{{neighbour.occupants.count|pluralize}}</p>
-            <p class="card-text"><span class="badge badge-secondary">{{neighbour.businesses.count}}</span> business{{neighbour.businesses.count|pluralize}}</p>
+            <h5 class="card-title"><a href="{% url 'neighbourhood:single' slug=neighbour.slug %}">{{neighbour.name}}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{neighbourhood.location}}</h6>
+            <p class="card-text"><span class="badge badge-secondary">{{neighbourhood.occupants.count}}</span> occupant{{neighbourhood.occupants.count|pluralize}}</p>
+            <p class="card-text"><span class="badge badge-secondary">{{neighbourhood.businesses.count}}</span> business{{neighbourhood.businesses.count|pluralize}}</p>
           </div>
         </div>
       </div>

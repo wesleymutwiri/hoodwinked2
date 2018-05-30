@@ -3,12 +3,12 @@
 <div class="col-sm-6">
     <div class="card" style="width: 18rem; margin-top: 20%">
         <div class="card-body">
-            <h5 class="card-title">{{neighbour.name|title }} Hood</h5>
-            <p class="card-text">Members: {{neighbour.occupants.count}}</p>
+            <h5 class="card-title">{{neighbourhood.name|title }} neighbourhood</h5>
+            <p class="card-text">Members: {{neighbourhood.occupants.count}}</p>
             {% if user in neighbour.occupants.all %}
-            <a href="{% url 'neighbour:leave' slug=neighbour.slug %}" class="btn btn-danger">Leave</a>
+            <a href="{% url 'neighbourhood:leave' slug=neighbourhood.slug %}" class="btn btn-danger">Leave</a>
             {% else %}
-            <a href="{% url 'neighbour:join' slug=neighbour.slug %}" class="btn btn-primary">Join</a>
+            <a href="{% url 'neighbourhood:join' slug=neighbourhood.slug %}" class="btn btn-primary">Join</a>
             {% endif %}
         </div>
     </div>
@@ -18,13 +18,18 @@
 
 {% endblock %} {% block neighbour_content %}
 <div class="mt-3 ml-3">
-    {% if neighbour.businesses.count == 0 %}
-    <h4>No Businesses in this neighbour yet!</h4>
-    {% if user in neighbour.occupants.all %}
+    {% if neighbourhood.businesses.count == 0 %}
+    <h4>No Businesses in this neighbourhood yet!</h4>
+    {% if user in neighbourhood.occupants.all %}
     <a href="{% url 'posts:create' %}">
         <button class="btn btn-tertiary" style="">Create Business</button>
     </a>
-    {% endif %} {% else %} {% for business in neighbour.businesses.all %} {% include "posts/_post.html" %} {% endfor %} {% endif%}
+    {% endif %} 
+    {% else %} 
+        {% for business in neighbourhood.businesses.all %} 
+            {% include "posts/_post.html" %} 
+        {% endfor %} 
+    {% endif%}
 </div>
 
 {% endblock %}

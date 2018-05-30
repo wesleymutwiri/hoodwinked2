@@ -4,32 +4,32 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.views import generic
-from neighbour.models import Neighbourhood, HoodMember
+from neighbour.models import Neighbourhood, NeighbourhoodMember
 
 # Create your views here.
 
 
-class CreateHood(LoginRequiredMixin, generic.CreateView):
+class CreateNeighbourhood(LoginRequiredMixin, generic.CreateView):
     fields = ('name', 'location')
     model = Neighbourhood
 
 
-class SingleHood(generic.DetailView):
+class SingleNeighbourhood(generic.DetailView):
     model = Neighbourhood
 
 
-class ListHoods(generic.ListView):
+class ListNeighbourhood(generic.ListView):
     model = Neighbourhood
 
-class JoinHood(LoginRequiredMixin, generic.RedirectView):
+class JoinNeighbourhood(LoginRequiredMixin, generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse('hoods:single', kwargs={'slug': self.kwargs.get('slug')})
 
     def get(self, request, *args, **kwargs):
-        hood = get_object_or_404(Neighbourhood, slug=self.kwargs.get('slug'))
+        neighbourhood = get_object_or_404(Neighbourhood, slug=self.kwargs.get('slug'))
 
         try:
-            HoodMember.objects.create(user=self.request.user, hood=hood)
+            HoodMember.objects.create(user=self.request.user, neighbourhood=neighbourhood)
         except IntegrityError:
             messages.warning(self.request, 'You are already a member!')
         else:
@@ -38,7 +38,7 @@ class JoinHood(LoginRequiredMixin, generic.RedirectView):
         return super().get(request, *args, **kwargs)
 
 
-class LeaveHood(LoginRequiredMixin, generic.RedirectView):
+class LeaveNeighbourhood(LoginRequiredMixin, generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse('hoods:single', kwargs={'slug': self.kwargs.get('slug')})
 

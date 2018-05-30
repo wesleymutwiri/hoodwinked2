@@ -4,8 +4,8 @@ from . import models
 # Register your models here.
 
 
-class neighbourMember(admin.TabularInline):
-    model = models.HoodMember
+class NeighbourhoodMember(admin.TabularInline):
+    model = models.NeighbourhoodMember
 
 
 admin.site.register(models.Neighbourhood)

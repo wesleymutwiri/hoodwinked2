@@ -4,10 +4,10 @@
     Now logged in 
 </h1>
 <div class="container">
-    <a href="{%url 'neighbour:create' %}"> <button class="btn btn-default btn-lg">create neighbourhood</a></button>
+    <a href="{%url 'neighbourhood:create' %}"> <button class="btn btn-default btn-lg">create neighbourhood</a></button>
             <a href="{% url 'posts:create' %}">
                 <button class="btn btn-primary btn-lg">Create New Business</button>
-                            <a href="{% url 'hoods:all' %}">
+                            <a href="{% url 'neighbourhood:all' %}">
                                 <button class="btn btn-secondary btn-lg">All Neighbourhoods</button>
                             </a>
             </a>

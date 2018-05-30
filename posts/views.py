@@ -15,7 +15,7 @@ User = get_user_model()
 
 class BusinessList(SelectRelatedMixin, generic.ListView):
     model = models.Business
-    select_related = ('user', 'hood')
+    select_related = ('user', 'neighbourhood')
 
 class UserBusinesses(generic.ListView):
     model = models.Business
@@ -36,7 +36,7 @@ class UserBusinesses(generic.ListView):
 
 
 class CreateBusiness(LoginRequiredMixin, SelectRelatedMixin, generic.CreateView):
-    fields = ('business_name', 'business_email', 'hood')
+    fields = ('business_name', 'business_email', 'neighbourhood')
     model = models.Business
 
     def form_valid(self, form):
@@ -47,7 +47,7 @@ class CreateBusiness(LoginRequiredMixin, SelectRelatedMixin, generic.CreateView)
 
 class BusinessDetail(SelectRelatedMixin, generic.DetailView):
     model = models.Business
-    select_related = ('user', 'hood')
+    select_related = ('user', 'neighbourhood')
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -56,7 +56,7 @@ class BusinessDetail(SelectRelatedMixin, generic.DetailView):
 
 class DeleteBusiness(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
     model = models.Business
-    select_related = ('user', 'hood')
+    select_related = ('user', 'neighbourhood')
     success_url = reverse_lazy('posts:all')
 
     def get_queryset(self):

@@ -13,7 +13,7 @@ class Neighbourhood(models.Model):
     name = models.CharField(max_length=140, unique=True)
     slug = models.SlugField(allow_unicode=True,  unique=True)
     location = models.CharField(max_length=140, blank=True, default='')
-    occupants = models.ManyToManyField(User, through='HoodMember')
+    occupants = models.ManyToManyField(User, through='NeighbourhoodMember')
 
 
     def __str__(self):
@@ -24,18 +24,18 @@ class Neighbourhood(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('neighbours:single', kwargs={'slug': self.slug})
+        return reverse('neighbour:single', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ['name']
 
-class HoodMember(models.Model):
-    hood = models.ForeignKey(Neighbourhood, related_name='memberships')
-    user = models.ForeignKey(User, related_name='user_hoods')
+class NeighbourhoodMember(models.Model):
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='memberships')
+    user = models.ForeignKey(User, related_name='user_neighbour')
 
     def __str__(self):
         return self.user.username
 
     class Meta:
-        unique_together = ('hood', 'user')
+        unique_together = ('neighbourhood', 'user')
 
