@@ -1,0 +1,19 @@
+body{
+    background-color: #000000;
+    font-size: 25px;
+    text-align: center;
+    color: dodgerblue;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Yatra One', cursive;
+    font-family: 'Righteous', cursive;
+    /* background-image: url("https://articles-images.sftcdn.net/wp-content/uploads/sites/3/2017/03/incognito-mode.png");
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Yatra One', cursive;
+}
+a{
+    color: green;
+}
