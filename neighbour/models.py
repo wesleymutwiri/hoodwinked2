@@ -24,7 +24,7 @@ class Neighbourhood(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('hoods:single', kwargs={'slug': self.slug})
+        return reverse('neighbours:single', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ['name']
