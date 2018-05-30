@@ -33,7 +33,7 @@ class JoinHood(LoginRequiredMixin, generic.RedirectView):
         except IntegrityError:
             messages.warning(self.request, 'You are already a member!')
         else:
-            messages.success(self.request, 'Congratulatoins!! You are now a member!')
+            messages.success(self.request, 'Congratulations!! You are now a member!')
 
         return super().get(request, *args, **kwargs)
 
