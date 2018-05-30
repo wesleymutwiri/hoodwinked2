@@ -1,4 +1,4 @@
-{%extends 'registration/base.html'%} {%load bootstrap4 %} {%block content%}
+{%extends 'base.html'%} {%load bootstrap4 %} {%block content%}
 
 <!-- <div class="container"> -->
     <div class="container col d-flex justify-content-center" style="padding-top: 100px;">
@@ -14,10 +14,10 @@
                     <h1>Hoodwinked</h1>
                     <p>Sign In to Hoodwinked</p>
         
+                    
                 </center>
         
             </div>
-    <h1>Login</h1>
         <div class="card-body">
     <form method="post">
         {%csrf_token%} {%bootstrap_form form %}
