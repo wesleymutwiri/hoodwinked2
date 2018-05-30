@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.conf import settings
-from hoods.models import Hood
+# from hoods.models import Hood
 from django.contrib.auth import get_user_model
 
 
@@ -14,7 +14,7 @@ class Business(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     business_name = models.CharField(max_length=140, blank=True, null=True)
     business_email = models.EmailField(max_length=70, blank=True)
-    hood = models.ForeignKey(Hood, related_name='businesses', null=True, blank=True)
+    # hood = models.ForeignKey(Hood, related_name='businesses', null=True, blank=True)
 
     def __str__(self):
         return self.business_name
