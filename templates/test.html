@@ -5,5 +5,11 @@
 </h1>
 <div class="container">
     <a href="{%url 'neighbour:create' %}" class="btn btn-default"> create neighbourhood</a>
+            <a href="{% url 'posts:create' %}">
+                <button class="btn btn-default">Create Business</button>
+                            <a href="{% url 'hoods:all' %}">
+                                <button class="btn btn-secondary btn-lg">All Hoods</button>
+                            </a>
+            </a>
 </div>
 {%endblock%}
