@@ -30,7 +30,7 @@ class Neighbourhood(models.Model):
         ordering = ['name']
 
 class HoodMember(models.Model):
-    hood = models.ForeignKey(Hood, related_name='memberships')
+    hood = models.ForeignKey(Neighbourhood, related_name='memberships')
     user = models.ForeignKey(User, related_name='user_hoods')
 
     def __str__(self):
