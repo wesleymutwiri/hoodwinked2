@@ -14,7 +14,47 @@
 
 <body>
 
-{%include 'navbar.html'%}     {%block content%} {% endblock %} {% block scripts %}
+<nav class="navbar sticky-top navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="{%url 'home'%}">
+            <h1> Udaku</h1>
+        </a>
+        <div class="navbar-center" style="margin-top:5px; margin-right:10px;">
+            <form action="" class="form-inline mx-auto" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-sm" placeholder="Search" name="profile">
+                </div>
+            </form>
+        </div>
+        {%if user.is_authenticated %}
+        <ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="nav navbar-nav navbar-right dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a href="{%url %}" class="dropdown-item"> Post</a>
+                    <a href="#" class="dropdown-item"> Neighbourhood</a>
+                    <a href="#" class="dropdown-item"> Create Neighbourhood</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+        </ul>
+        <a href="{% url 'accounts:logout' %}"> Logout</a>
+        {%else%}
+        <li>
+            <a href="#"> Groups</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:login' %}">Login</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:signup' %}"> Sign Up</a>
+        </li>
+    </div>
+    {%endif%}
+    </div>
+</nav>     {%block content%} {% endblock %} {% block scripts %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% bootstrap_javascript %} {% endblock %}
