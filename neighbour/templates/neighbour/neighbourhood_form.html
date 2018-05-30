@@ -1,4 +1,4 @@
-{% extends "neighbour/neighbour_base.html" %} {% load bootstrap4 %} {% block hood_content %}
+{% extends "neighbour/neighbour_base.html" %} {% load bootstrap4 %} {% block neighbour_content %}
 <div class="container ">
     <div class="row">
         <div class="col-md-4">
@@ -8,7 +8,7 @@
             <div class="card" style=" margin-top: 22%">
                 <h5 class="card-header text-center">Create New Hood</h5>
                 <div class="card-body">
-                    <form action="{% url 'hoods:create'%}" method="post">
+                    <form action="{% url 'neighbour:create'%}" method="post">
                         {% csrf_token %} {% bootstrap_form form %}
                         <input type="submit" class="btn btn-success" value="Create">
                     </form>
