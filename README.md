@@ -1,8 +1,13 @@
 # hoodwinked2
+
 ## By **Wesley Mutwiri**
+
 ## Live Demo
+
 coming soon
 ## Description
+
+This is an application that enables users to get in the know on what's around their neighbourhood. The user can also advertise their work on the website such as businesses and also get information concerning police officers and ambulances in the area via the application. The users can also create their own neighbourhoods where they will become administrators of the neighbourhood . The users can also post stories on the website including images .
 
 ## Setup and Installation Requirements
 1. Open your default web browser
